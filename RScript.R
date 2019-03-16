@@ -11,5 +11,5 @@ data2<- as_tibble(data2)
 
 selectInput("Malnutrition_Type", "Select Malnutrition Status", choices = unique(data2$Moderate.Severe))
 ggplot(data=data2 %>% dplyr::filter(Moderate.Severe==input$Malnutrition_Type),
-       aes(A_PCT, B_PCT)) + 
-  geom_bar(stat =Location )+labs(title="", x="", y="")
+       aes(A_PCT, number_living_household)) + 
+  geom_point(stat ="Location")+labs(title="", x="", y="")
