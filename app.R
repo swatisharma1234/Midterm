@@ -18,7 +18,7 @@ server <- function(input, output) {
   output$plot_treatment<-renderPlot(
     
     ggplot(data=data2 %>% dplyr::filter(Moderate.Severe==input$Malnutrition_Type),
-           aes(Age_M, number_living_household)) + 
+           aes(AgeGroup_M, Parent_Age_M_CI)) + 
       geom_point(color='red')+labs(title="", x="", y="")
     
       )
