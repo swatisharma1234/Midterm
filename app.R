@@ -21,13 +21,15 @@ server <- function(input, output) {
     
     ggplot(data=data2 %>% dplyr::filter(Moderate.Severe==input$Malnutrition_Type,sex==input$Gender),
            aes(Parent_AgeG, Age_M)) + 
-      geom_point(color='red')+labs(title="Relationship between Age of Child and Parent", x="Age of Parent (years)", y="Age of Child (Months)")
+      geom_point(aes(colour=Location),size=4)+labs(title="Relationship between Age of Child and Parent by Location", x="Age of Parent (years)", y="Age of Child (Months)")+theme_light(base_size = 12)+
+      theme(plot.title = element_text(color="#1A5276", face="bold", size=16, hjust=0)) 
     
   )
   
   output$plot_gender<- renderPlot(ggplot(data=data2 %>% dplyr::filter(Moderate.Severe==input$Malnutrition_Type,sex==input$Gender),
-                                         aes(x=AgeGroup_M)) + geom_bar()+
-                                    geom_text(stat='count',aes(label=..count..),vjust=-1))
+                                         aes(x=AgeGroup_M)) + geom_bar(colour="white",fill="#1A5276")+
+                                    geom_text(stat='count',aes(label=..count..),vjust=-1)+xlab("Age Group of Child")+ylab("Number of Children")+ggtitle("Distribution by Age Groups")+theme_minimal(base_size =12)+
+                                    theme(plot.title = element_text(color="#1A5276", face="bold", size=16, hjust=0)))
   
 }
 
