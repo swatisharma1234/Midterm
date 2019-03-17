@@ -27,7 +27,7 @@ server <- function(input, output) {
   )
   
   output$plot_gender<- renderPlot(ggplot(data=data2 %>% dplyr::filter(Moderate.Severe==input$Malnutrition_Type,sex==input$Gender),
-                                         aes(x=AgeGroup_M)) + geom_bar(colour="white",fill="#1A5276")+
+                                         aes(x=AgeGroup_M)) + geom_bar(colour="white",fill="#78A4C0")+
                                     geom_text(stat='count',aes(label=..count..),vjust=-1)+xlab("Age Group of Child")+ylab("Number of Children")+ggtitle("Distribution by Age Groups")+theme_minimal(base_size =12)+
                                     theme(plot.title = element_text(color="#1A5276", face="bold", size=16, hjust=0)))
   
