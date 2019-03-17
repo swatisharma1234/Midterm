@@ -13,7 +13,7 @@ colnames(data)
 data2<- data[(complete.cases(data)),]
 nrow(data2)
 data2<- as_tibble(data2)
-#data2<- data2[order(-AgeGroup_M),]
+
 
 server <- function(input, output) {
   
@@ -21,7 +21,7 @@ server <- function(input, output) {
     
     ggplot(data=data2 %>% dplyr::filter(Moderate.Severe==input$Malnutrition_Type,sex==input$Gender),
            aes(Parent_AgeG, Age_M)) + 
-      geom_point(aes(colour=Location),size=4)+labs(title="Relationship between Age of Child and Parent by Location", x="Age of Parent (years)", y="Age of Child (Months)")+theme_light(base_size = 12)+
+      geom_point(aes(colour=Location),size=4)+labs(title="Relationship between Age of Child and Age of Parent by Location", x="Age of Parent (years)", y="Age of Child (Months)")+theme_light(base_size = 12)+
       theme(plot.title = element_text(color="#1A5276", face="bold", size=16, hjust=0)) 
     
   )
