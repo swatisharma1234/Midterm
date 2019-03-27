@@ -1,6 +1,7 @@
-library(tidyverse)
+#library(tidyverse)
 library(shiny)
-library(dplyr)
+#library(dplyr)
+library(ggplot2)
 
 # reading in the dataset
 download.file("https://raw.githubusercontent.com/swatisharma1234/Midterm/master/shinydata.txt", destfile= "Data.csv", mode = "wb")
