@@ -1,6 +1,6 @@
 #library(tidyverse)
 library(shiny)
-#library(dplyr)
+library(dplyr)
 library(ggplot2)
 
 # reading in the dataset
